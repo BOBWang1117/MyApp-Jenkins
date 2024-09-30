@@ -19,7 +19,7 @@ import java.util.List;
 @Setter
 @Getter
 @RestController
-@RequestMapping("/users")
+@RequestMapping("users")
 public class UserController {
 
     private UserService userService;
@@ -33,11 +33,13 @@ public class UserController {
 
     @GetMapping("")
     public List<User> getAllUsers() {
+    	System.out.println("userService.getAllUsers()" + userService.getAllUsers());
         return userService.getAllUsers();
     }
 
     @GetMapping("/{email}")
     public User retrieveUser(@PathVariable String email) {
+    	System.out.println("email2");
         return userService.getUser(email);
     }
 
